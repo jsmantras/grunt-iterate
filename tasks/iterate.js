@@ -22,7 +22,6 @@ module.exports = function (grunt) {
 			allOptValues = grunt.option(opts.argName).split(opts.separator),
 			callback = this.async(),
 			inputs = grunt.util.toArray(arguments);
-		//grunt.log.writeln(grunt.cli.tasks, inputs, '==========',  allOptValues);
 
 		async.eachLimit(allOptValues, opts.limit, function (curOpt, next) {
 			var task = [ inputs.join(':') ].concat('--' + opts.argName + '=' + curOpt),

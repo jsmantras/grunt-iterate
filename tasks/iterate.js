@@ -13,7 +13,7 @@ var os = require('os');
 var procs = [];
 
 module.exports = function (grunt) {
-	grunt.registerTask('iterate', 'The best Grunt plugin ever.', function () {
+	grunt.registerTask('iterate', function () {
 		var opts = this.options({
 				argName: 'key',
 				separator: ',',

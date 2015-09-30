@@ -28,9 +28,9 @@ grunt.loadNpmTasks('grunt-iterator');
 grunt.initConfig({
   iterate: {
     options: {
-        argName: 'key'   // Default set to 'key'
-        separator: ','   // Default set to ','
-        limit: 5         // Since the tasks run concurrently default set to maximum of 2 or number of CPU cores
+        argName: 'key',   // Default set to 'key'
+        separator: ',',   // Default set to ','
+        limit: 5          // Since the tasks run concurrently default set to maximum of 2 or number of CPU cores
     }
   }
 });

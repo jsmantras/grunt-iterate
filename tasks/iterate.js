@@ -9,6 +9,7 @@
 'use strict';
 var async = require('async');
 var os = require('os');
+var lpad = require('lpad');
 
 var procs = [];
 
@@ -30,11 +31,13 @@ module.exports = function (grunt) {
 					args: task
 				}, function (err, result, code) {
 					if (err || code > 0) {
-						grunt.warn(result.stderr || result.stdout);
+						grunt.warn(lpad(result.stderr || result.stdout, '    '));
 					}
-					grunt.log.writeln('\n' + result.stdout +
+					grunt.log.writeln(lpad(
+						'\n' + result.stdout +
 						'\nFinished running task "' + inputs.join(':') + '" with "' +
-						opts.argName + '=' + curOpt + '"');
+						opts.argName + '=' + curOpt + '"'
+					, '   '));
 					next();
 				});
 			procs.push(itTask);

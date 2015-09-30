@@ -1,8 +1,8 @@
 {
   "name": "grunt-iterate",
-  "description": "The best Grunt plugin ever.",
+  "description": "Iterate tasks multiple times for an argument list.",
   "version": "0.0.1",
-  "homepage": "https://github.com/ngineer/grunt-iterate",
+  "homepage": "https://github.com/jsmantras/grunt-iterate",
   "author": {
     "name": "JSMantras",
     "email": "jsmantras@gmail.com",

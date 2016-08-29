@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 			callback = this.async(),
 			inputs = grunt.util.toArray(arguments),
 			flags = grunt.option.flags(),
-			arg = [ '--', opts.argName, '=', grunt.option(opts.argName)].join();
+			arg = [ '--', opts.argName, '=', grunt.option(opts.argName)].join('');
 
 			if (flags.indexOf(arg) >= 0) {
 				flags.splice(flags.indexOf(arg), 1);

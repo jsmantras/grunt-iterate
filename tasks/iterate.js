@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 			}
 
 		async.eachLimit(allOptValues, opts.limit, function (curOpt, next) {
-			var task = [ inputs.join(':') ].concat('--' + opts.argName + '=' + curOpt),
+			var task = [ inputs.join(':') ].concat('--' + opts.argName + '=' + curOpt).concat(flags),
 				itTask = grunt.util.spawn({
 					grunt: true,
 					args: task

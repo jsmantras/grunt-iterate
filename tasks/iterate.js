@@ -22,10 +22,16 @@ module.exports = function (grunt) {
 			}),
 			allOptValues = grunt.option(opts.argName).split(opts.separator),
 			callback = this.async(),
-			inputs = grunt.util.toArray(arguments);
+			inputs = grunt.util.toArray(arguments),
+			flags = grunt.option.flags(),
+			arg = [ '--', opts.argName, '=', grunt.option(opts.argName)].join('');
+
+			if (flags.indexOf(arg) >= 0) {
+				flags.splice(flags.indexOf(arg), 1);
+			}
 
 		async.eachLimit(allOptValues, opts.limit, function (curOpt, next) {
-			var task = [ inputs.join(':') ].concat('--' + opts.argName + '=' + curOpt),
+			var task = [ inputs.join(':') ].concat('--' + opts.argName + '=' + curOpt).concat(flags),
 				itTask = grunt.util.spawn({
 					grunt: true,
 					args: task
